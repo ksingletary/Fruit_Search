@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+/* :focus { */
+ /* TODO */
+/* } */
+
+body { 
+  background:radial-gradient(ellipse at right, rgb(228, 185, 56) 0%, rgb(243, 153, 57) 35%, #dcb145 100%);
+}
+
+#myList {
+  width: 40%;
+}
+
+input {
+  height: 25px;
+  width: 40%;
+  font-size: 17px;
+  font-style: italic;
+  padding: .1%;
+}
+
+.search-container {
+  width: 50%;
+  padding: 8px 9px;
+  margin-left: 39%;
+  margin-top: 20%;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 120%;
+}
+/* .search-container input,
+.search-container .suggestions { */
+  /* TODO */
+/* } */
+/* .search-container input { */
+ /* TODO */
+/* } */
+/* .search-container .suggestions { */
+   /* TODO */
+/* } */
+
+/* ul { */
+  /* TODO */
+/* } */
+/* ul.has-suggestions { */
+  /* TODO */
+/* } */
+/* ul li { */
+  /* TODO */
+/* } */
+/* ul li:hover { */
+  /* TODO */
+/* } */
