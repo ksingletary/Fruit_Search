@@ -6,34 +6,33 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 
 function search(str) {
 	let results = [];
-
-	const dropdownLst = document.createElement('select');
-	dropdownLst.setAttribute('id', 'myList');
-	dropdownLst.setAttribute('onchange', 'search(str)');
-	container.appendChild(dropdownLst);
-
 	input.addEventListener('input', function(evt){
 		str = input.value;
 		return fruit.filter((val, idx) => {
 			val.toLowerCase() === str.toLowerCase() ? results.push(str) : console.log(input.value);
-			let count = 0;
-			for (let fruit of results){
-				const option = document.createElement('option'); //might be easier with indexed for loops
-				option.value = count; //I think instead of creating options here, simply set these values inside the for loop
-				option.text = fruit;	//then globally handle creating options where select elements are
-				dropdownLst.appendChild(option);
-				count++;
-			}
+			searchHandler(results);
 		})
 	}) 	
 	return results;
 }
 search(input.value);
 
-function searchHandler(e) {
-	
+const dropdownLst = document.createElement('select');
+dropdownLst.setAttribute('id', 'myList');
+dropdownLst.setAttribute('onchange', 'search(str)');
+container.appendChild(dropdownLst);
+const option = document.createElement('option');
 
+function searchHandler(results) {
+	let count = 0;
+	for (let fruit of results){
+		option.value = count; 
+		option.text = fruit;	
+		dropdownLst.appendChild(option);
+		count++;
+	}
 }
+
 function showSuggestions(results, inputVal) {
 
 	// TODO
@@ -43,5 +42,5 @@ function useSuggestion(e) {
 	// TODO
 }
 
-input.addEventListener('keyup', searchHandler);
+// input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
