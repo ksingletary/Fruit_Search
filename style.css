@@ -26,7 +26,7 @@ input {
 
 .search-container .suggestions { 
   position: absolute;
-  width: 100vw;
+  width: 20vw;
   max-height: 400px;
   overflow: scroll;
   font-size: 128%;
@@ -40,7 +40,7 @@ input {
 
 ul { 
   background: #eaa031;
-  max-width: 20vw;
+  list-style: none;
 } 
 
 ul.has-suggestions { 
@@ -48,7 +48,8 @@ ul.has-suggestions {
 } 
 
  ul li { 
-  list-style: none;
+  padding: 0.2rem 0.2rem;
+  border-radius: 5px;
 } 
 
 ul li:hover { 
