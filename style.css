@@ -2,55 +2,54 @@
   box-sizing: border-box;
 }
 
-/* :focus { */
- /* TODO */
-/* } */
-
 body { 
-  background:radial-gradient(ellipse at right, rgb(228, 185, 56) 0%, rgb(243, 153, 57) 35%, #dcb145 100%);
-}
-
-#myList {
-  width: 40%;
+  background: linear-gradient(to right, #f9c942, #e6511e);
 }
 
 input {
-  height: 25px;
-  width: 40%;
-  font-size: 17px;
-  font-style: italic;
-  padding: .1%;
+  background-color: rgba(255, 255, 255, .3);
+  padding: 0.5em 1em;
+  border: none;
+  border-bottom: 2px solid #DF5000;
 }
 
 .search-container {
   width: 50%;
   padding: 8px 9px;
   margin-left: 39%;
-  margin-top: 20%;
+  margin-top: 24%;
   box-sizing: border-box;
   font-family: monospace;
-  font-size: 120%;
+  font-size: 100%;
 }
-/* .search-container input,
-.search-container .suggestions { */
-  /* TODO */
-/* } */
-/* .search-container input { */
- /* TODO */
-/* } */
-/* .search-container .suggestions { */
-   /* TODO */
-/* } */
 
-/* ul { */
-  /* TODO */
-/* } */
-/* ul.has-suggestions { */
-  /* TODO */
-/* } */
-/* ul li { */
-  /* TODO */
-/* } */
-/* ul li:hover { */
-  /* TODO */
-/* } */
+.search-container .suggestions { 
+  position: absolute;
+  width: 100%;
+  max-height: 400px;
+  overflow: scroll;
+  font-size: 140%;
+} 
+
+.search-container input { 
+  width: 300px;
+  background-color: rgba(255, 255, 255, .3);
+} 
+
+ul { 
+  background-color: rgba(255, 255, 255, .3);
+  max-width: 20%;
+} 
+
+ul.has-suggestions { 
+  display: flex;
+} 
+
+ ul li { 
+  list-style: none;
+} 
+
+ul li:hover { 
+  color: #cf5c19;
+  cursor: pointer;
+} 
