@@ -8,6 +8,7 @@ body {
 
 input {
   background-color: rgba(255, 255, 255, .3);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   padding: 0.5em 1em;
   border: none;
   border-bottom: 2px solid #da621c;
@@ -28,15 +29,19 @@ input {
   width: 100%;
   max-height: 400px;
   overflow: scroll;
-  font-size: 140%;
+  font-size: 128%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 } 
 
 .search-container input { 
+
   width: 300px;
   background: #eaa031;
+  
 } 
 
 ul { 
+
   background: #eaa031;
   max-width: 20%;
 } 

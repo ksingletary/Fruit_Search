@@ -7,6 +7,8 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 function search(str) {
 	let results = [];
 	const lowerStr = str.toLowerCase();
+
+	//filter out lowercse vals from fruit & push to reslts
 	fruit.filter((val, idx) => {
 		const lowerCaseWord = val.toLowerCase();
 		return lowerCaseWord.includes(lowerStr) ? results.push(val) : console.log('non-values');
@@ -17,6 +19,7 @@ function search(str) {
 function searchHandler(evt) {
 	suggestions.innerHTML = "";
 
+	//case if no values, don't create any list elemnts
 	if (!evt.target.value) return;
 
 	const inputVal = evt.target.value;
@@ -24,6 +27,8 @@ function searchHandler(evt) {
 	showSuggestions(results, inputVal);
 }
 
+
+//create the DOM list
 function showSuggestions(results, inputVal) {
 	for (const [index, fruit] of results.entries()) {
 		const li = document.createElement('li');
@@ -32,11 +37,12 @@ function showSuggestions(results, inputVal) {
 	}
 }
 
+//when something is selected it bolds
 function selectedInp(fruit, inputVal) {
 	const regEx = new RegExp(inputVal, "ig");
 	return fruit.replace(regEx, `<b>$&</b>`);
 }
-
+//when a suggestion is selected it changes input
 function useSuggestion(evt) {
 	const selectedText = evt.target.textContent;
 	input.value = selectedText;
