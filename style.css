@@ -10,7 +10,7 @@ input {
   background-color: rgba(255, 255, 255, .3);
   padding: 0.5em 1em;
   border: none;
-  border-bottom: 2px solid #DF5000;
+  border-bottom: 2px solid #da621c;
 }
 
 .search-container {
@@ -33,11 +33,11 @@ input {
 
 .search-container input { 
   width: 300px;
-  background-color: rgba(255, 255, 255, .3);
+  background: #eaa031;
 } 
 
 ul { 
-  background-color: rgba(255, 255, 255, .3);
+  background: #eaa031;
   max-width: 20%;
 } 
 
