@@ -1,48 +1,47 @@
 const input = document.querySelector('#fruit');
 const suggestions = document.querySelector('.suggestions ul');
-const container = document.querySelector('.search-container');
+
 
 const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
 function search(str) {
 	let results = [];
-	input.addEventListener('input', function(evt){
-		str = input.value;
-		fruit.filter((val, idx) => {
-			val[0].toLowerCase() === str[0].toLowerCase() ? results.push(val) : console.log('hi!');
-		})
-		searchHandler(results);
-	}) 	
+	const lowerStr = str.toLowerCase();
+	fruit.filter((val, idx) => {
+		const lowerCaseWord = val.toLowerCase();
+		return lowerCaseWord.includes(lowerStr) ? results.push(val) : console.log('non-values');
+	})
 	return results;
 }
-search(input.value);
 
-const dropdownLst = document.createElement('select');
-dropdownLst.setAttribute('id', 'myList');
-dropdownLst.setAttribute('onchange', 'searchHanndler(results)');
+function searchHandler(evt) {
+	suggestions.innerHTML = "";
 
-function searchHandler(results) {
-	container.appendChild(dropdownLst);
-	for (let fruit of results){
-		const option = document.createElement('option');
-		option.value = 'fruit'; 
-		option.text = fruit;	
-		dropdownLst.appendChild(option);
-	}
-	console.log(results)
+	if (!evt.target.value) return;
+
+	const inputVal = evt.target.value;
+	const results = search(inputVal);
+	showSuggestions(results, inputVal);
 }
 
 function showSuggestions(results, inputVal) {
-	const theOpt = document.querySelector('select');
-	theOpt.addEventListener('mouseover', function(evt){
-		console.log("...you")
-	})
-
-}
-showSuggestions
-function useSuggestion(e) {
-	// TODO
+	for (const [index, fruit] of results.entries()) {
+		const li = document.createElement('li');
+		li.innerHTML = selectedInp(fruit, inputVal);
+		suggestions.appendChild(li);
+	}
 }
 
-// input.addEventListener('keyup', searchHandler);
+function selectedInp(fruit, inputVal) {
+	const regEx = new RegExp(inputVal, "ig");
+	return fruit.replace(regEx, `<b>$&</b>`);
+}
+
+function useSuggestion(evt) {
+	const selectedText = evt.target.textContent;
+	input.value = selectedText;
+	suggestions.innerHTML = '';
+}
+
+input.addEventListener('keyup', searchHandler);
 suggestions.addEventListener('click', useSuggestion);
